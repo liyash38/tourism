@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tourism Management System</title>
+
+<style>
+body{
+  font-family: Arial;
+  background:#f4f6f8;
+  margin:0;
+}
+header{
+  background:#0d6efd;
+  color:white;
+  padding:15px;
+  text-align:center;
+}
+nav{
+  background:#084298;
+  padding:10px;
+  text-align:center;
+}
+nav button{
+  margin:5px;
+  padding:8px 12px;
+  border:none;
+  background:#fff;
+  cursor:pointer;
+}
+section{
+  display:none;
+  padding:20px;
+}
+.card{
+  background:white;
+  padding:15px;
+  max-width:400px;
+  margin:auto;
+  box-shadow:0 0 5px gray;
+}
+input,select,textarea,button{
+  width:100%;
+  padding:8px;
+  margin:5px 0;
+}
+button{
+  background:#198754;
+  color:white;
+  border:none;
+}
+footer{
+  background:#0d6efd;
+  color:white;
+  text-align:center;
+  padding:10px;
+}
+</style>
+</head>
+
+<body onload="show('home')">
+
+<header>
+<h1>Tourism Management System</h1>
+<p>User | Admin | Guest</p>
+</header>
+
+<nav>
+<button onclick="show('home')">Home</button>
+<button onclick="show('login')">Login</button>
+<button onclick="show('register')">Register</button>
+<button onclick="show('enquiry')">Enquiry</button>
+</nav>
+
+<!-- HOME -->
+<section id="home">
+<div class="card">
+<h2>Welcome Guest User</h2>
+<p>Visit website and enquire about tour packages.</p>
+</div>
+</section>
+
+<!-- LOGIN -->
+<section id="login">
+<div class="card">
+<h2>Login</h2>
+<input type="email" id="email" placeholder="Email">
+<input type="password" id="password" placeholder="Password">
+<select id="role">
+<option>User</option>
+<option>Admin</option>
+</select>
+<button onclick="login()">Login</button>
+<p onclick="show('forgot')" style="cursor:pointer;color:blue">Forgot Password?</p>
+</div>
+</section>
+
+<!-- REGISTER -->
+<section id="register">
+<div class="card">
+<h2>User Registration</h2>
+<input placeholder="Name">
+<input placeholder="Email">
+<input type="password" placeholder="Password">
+<button onclick="alert('Registered Successfully (Demo)')">Register</button>
+</div>
+</section>
+
+<!-- FORGOT PASSWORD -->
+<section id="forgot">
+<div class="card">
+<h2>Recover Password</h2>
+<input placeholder="Registered Email">
+<button onclick="alert('Password recovery link sent (Demo)')">Recover</button>
+</div>
+</section>
+
+<!-- USER DASHBOARD -->
+<section id="user">
+<div class="card">
+<h2>User Dashboard</h2>
+<p>✔ Tour Booking</p>
+<p>✔ Manage Booking</p>
+<p>✔ Generate Ticket (Complaint)</p>
+<p>✔ Change Password</p>
+<button onclick="show('booking')">Book Tour</button>
+<button onclick="alert('Booking Managed (Demo)')">My Booking</button>
+<button onclick="alert('Issue Generated (Demo)')">Raise Issue</button>
+</div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking">
+<div class="card">
+<h2>Tour Booking</h2>
+<select>
+<option>Ooty Tour</option>
+<option>Kodaikanal Tour</option>
+<option>Goa Tour</option>
+</select>
+<select>
+<option>1 Person</option>
+<option>2 Persons</option>
+<option>3 Persons</option>
+</select>
+<button onclick="alert('Tour Booked Successfully')">Confirm Booking</button>
+</div>
+</section>
+
+<!-- ADMIN DASHBOARD -->
+<section id="admin">
+<div class="card">
+<h2>Admin Dashboard</h2>
+<p>✔ Create / Update Packages</p>
+<p>✔ Manage Users</p>
+<p>✔ Manage Enquiries</p>
+<p>✔ Manage Issues</p>
+<p>✔ Manage Bookings</p>
+<p>✔ Manage Pages</p>
+<p>✔ Change Password</p>
+</div>
+</section>
+
+<!-- ENQUIRY -->
+<section id="enquiry">
+<div class="card">
+<h2>Guest Enquiry</h2>
+<input placeholder="Name">
+<input placeholder="Email">
+<textarea placeholder="Your Enquiry"></textarea>
+<button onclick="alert('Enquiry Submitted')">Submit</button>
+</div>
+</section>
+
+<footer>
+© 2026 Tourism Management System – Mini Project
+</footer>
+
+<script>
+function show(id){
+  let sections=document.querySelectorAll("section");
+  sections.forEach(s=>s.style.display="none");
+  document.getElementById(id).style.display="block";
+}
+function login(){
+  let role=document.getElementById("role").value;
+  if(role==="Admin"){
+    show("admin");
+  }else{
+    show("user");
+  }
+}
+</script>
+
+</body>
+</html>
